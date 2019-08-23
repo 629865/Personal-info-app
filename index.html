@@ -1,0 +1,139 @@
+<html>
+<head>
+    <style type ="text/css">
+        body {
+            background-color:black;
+            color: aqua;
+            text-align: center;
+        }
+        div {
+            width: 50%;
+            margin: 10px auto;
+            padding: 10px;
+            
+        }
+        
+        div.longText {
+            border: 5px solid white;
+        }
+        div.shortText {
+            background-color: red;
+        }
+        div.clicked{
+            background-color: white;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Personal Info App</h1>
+    <div class="longText">
+    <h3>My Summer</h3>
+    <p>I played video games. I did some yard work. I started driving a car.</p>
+    <h5>Plans for College</h5>
+    <p>After high school I plan to go to UT. Going into a computer programming class.</p>
+    <h7>Plans for during College</h7>
+    <p>I plan to get my degree so that I can graduate from college. I plan to do good in computer programming.</p>
+    <h9>Plans for after College</h9>
+    <p>I plan to work at Nintendo. I plan to make video games.</p>
+    <h11>Plans for life after College</h11>
+    <p>I plan to get a Husky. I plan to move into my own house.</p>
+    </div>
+    <img src="Thunder_Raccoon_Mario.png" width = 300; id = "img1">
+    <img src="husky.jfif">
+    <script>
+        //let name = "Justin Lambdin"
+        //let age = 17
+        //Create an object called person
+        let person = {
+            //key : value
+            "firstName": "Justin",
+            "lastName": "Lambdin",
+            "age" : 17,
+            "favColor" : "yellow",
+            "siblings": ["Brandon"],
+            "favArtists": ["none"],
+            "favVideoGame": ["Mario and Luigi Superstar Saga"],
+            "favFood": ["Cheesy Potatoes"],
+            "favSubject": ["Computer Tech"]
+        }
+        console.log(person)
+        console.log(person.age)
+        /*let elem = document.createElement('h3')
+        elem.innerHTML = person.firstName
+        document.body.appendChild(elem)*/
+        
+        let elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Name</h3>
+${person.firstName} ${person.lastName}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Age</h3>
+${person.age}
+        Next year I will be ${person.age +1}`
+        document.body.appendChild(elem)
+
+        //Get a reference to elements on the page
+        
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Color</h3>
+${person.favColor}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Siblings</h3>
+${person.siblings}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Artists</h3>
+${person.favArtists}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Video Game</h3>
+${person.favVideoGame}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Food</h3>
+${person.favFood}`
+        document.body.appendChild(elem)
+        
+        elem = document.createElement('div')
+        elem.classList.add('shortText')
+        elem.innerHTML = `<h3>Subject</h3>
+${person.favSubject}`
+        document.body.appendChild(elem)
+        
+        let divs = document.querySelectorAll('div');
+        for(let i = 0; i < divs.length; i++) {
+            let div = divs[i];
+            div.addEventListener('click',handleClick);
+        }
+        function handleClick(event) {
+            if (event.target.style.backgroundColor == "white");
+            event.target.classList.toggle('clicked');
+        }
+    
+        
+        document.querySelector('#img1').addEventListener('click', handleImgClick)
+        
+        function handleImgClick(event) {
+           if (event.target.width == 300)
+               event.target.width = 500
+            else
+                event.target.width = 300
+        }
+    </script>
+</body>
+</html>
